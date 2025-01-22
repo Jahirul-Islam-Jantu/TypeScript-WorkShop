@@ -63,15 +63,100 @@ console.log(add2(2, 3));
  *
  * @param name This parameter will takes the string as input
  * @param message This parameter is optional and if we want to use it we can set a value custom otherwise it will use the default value
+ * @param rest we can use the rest parameter to get the large array value
  * @returns this will return both string as a message.
  *
  * @example
  * greet("Jahir") // "Hello Jahir!, Welcome To Typescript"
  * greet("Jahir", "Welcome Back") // "Hello Jahir!, Welcome Back"
  */
-function greet(name: string, message: string = "Welcome To Typescript") {
-  return console.log(`Hello ${name}!, ${message}`);
+function greet(
+  name: string,
+  message: string = "Welcome To Typescript",
+  ...rest: string[]
+) {
+  return console.log(`Hello ${name}!, ${message}, ${rest}`);
 }
 
 greet("Jahir");
 greet("Jantu", "Welcome Back");
+greet("Jahirul islam", "Welcome Back", "Jahirul Islam", " How are you?");
+
+// object in function
+
+enum Role {
+  ADMIN = "ADMIN",
+  DEVELOPER = "DEVELOPER",
+  HR = "HR",
+  MANAGER = "MANAGER",
+}
+
+type employeeType = {
+  id: number;
+  name: string;
+  department: string;
+  Role: Role;
+};
+
+const employees: employeeType[] = [];
+
+/**
+ *
+ * @param employee the employee must have id in a number value, name in a string value, department in a string value, Role from the enum values.
+ *
+ * @example
+ * addEmployee({
+ *  id: 1,
+ *  name: "John Doe",
+ *  department: "HR",
+ *  Role: Role.HR,
+ * })
+ */
+function addEmployee(employee: employeeType) {
+  employees.push(employee);
+}
+
+addEmployee({
+  id: 1,
+  name: "John Doe",
+  department: "HR",
+  Role: Role.HR,
+});
+addEmployee({
+  id: 2,
+  name: "Celion Dion",
+  department: "IT",
+  Role: Role.DEVELOPER,
+});
+
+addEmployee({
+  id: 3,
+  name: "Jahirul Islam",
+  department: "ADMIN",
+  Role: Role.ADMIN,
+});
+addEmployee({
+  id: 4,
+  name: "Jantu",
+  department: "Finance",
+  Role: Role.MANAGER,
+});
+
+addEmployee({
+  id: 5,
+  name: "Jahir",
+  department: "IT",
+  Role: Role.DEVELOPER,
+});
+
+addEmployee({
+  id: 6,
+  name: "Samayrah",
+  department: "IT",
+  Role: Role.DEVELOPER,
+});
+
+console.log("employees: ", employees);
+
+console.log(employees.filter((employee) => employee.Role === Role.DEVELOPER));
+
