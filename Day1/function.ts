@@ -158,5 +158,45 @@ addEmployee({
 
 console.log("employees: ", employees);
 
-console.log(employees.filter((employee) => employee.Role === Role.DEVELOPER));
+// console.log(employees.filter((employee) => employee.Role === Role.DEVELOPER));
 
+function findByRole(role: Role) {
+  return employees.filter((employee) => employee.Role === role);
+}
+
+console.log("Find By Role : ", findByRole(Role.DEVELOPER));
+
+function findById(id: number) {
+  return employees.filter((employee) => employee.id === id);
+}
+
+console.log("find By Id: ", findById(2));
+
+function findByNameAndDepartment(name: string, department: string) {
+  return employees.filter((employee) => {
+    return employee.name === name && employee.department === department;
+  });
+}
+console.log(
+  "Find By Name and Department : ",
+  findByNameAndDepartment("Jahir", "IT")
+);
+
+/**
+ *
+ * @param department Have to pass the department in formatted value
+ * @param role Have to pass the Role in formatted value
+ * @returns function will return the array of employee matched the filter content
+ *
+ * @example
+ * findByDepartmentAndRole("IT", Role.DEVELOPER)
+ */
+function findByDepartmentAndRole(department: string, role: Role) {
+  return employees.filter((employee) => {
+    return employee.department === department && employee.Role === role;
+  });
+}
+console.log(
+  "Find By Department and Role :",
+  findByDepartmentAndRole("IT", Role.DEVELOPER)
+);
