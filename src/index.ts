@@ -1,2 +1,1 @@
-import "./typeInferance";
-
+import "./typeAlias";

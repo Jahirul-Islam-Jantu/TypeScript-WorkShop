@@ -65,9 +65,9 @@ const invalid = numbers.map((num) => num.toUpperCase()); // Error: Property 'toU
  //! Best Practices for Using Type Inference:
 
     ** Trust TypeScript: Use inference where possible, but provide explicit types for:
-    ** Public APIs
-    ** Function parameters
-    ** Complex or ambiguous types
+        ** Public APIs
+        ** Function parameters
+        ** Complex or ambiguous types
     ** Combine with Explicit Types: Use type inference for local variables but provide types for more complex structures.
     ** Avoid any: Relying on inference discourages the use of the any type, improving type safety
  */

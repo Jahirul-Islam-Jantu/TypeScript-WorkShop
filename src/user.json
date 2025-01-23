@@ -1,0 +1,50 @@
+{
+  "id": "001",
+  "name": "John Doe",
+  "age": 30,
+  "email": "john.doe@example.com",
+  "phone": "1234567890",
+  "address": {
+    "street": "123 Main St",
+    "city": "New York",
+    "state": "NY",
+    "zip": "10001",
+    "country": "USA",
+    "coordinates": {
+      "latitude": 40.7128,
+      "longitude": -74.006
+    },
+    "addressType": "home"
+  },
+  "skills": [
+    {
+      "name": "JavaScript",
+      "experience": 5
+    },
+    {
+      "name": "Python",
+      "experience": 3
+    },
+    {
+      "name": "React",
+      "experience": 4
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science",
+      "major": "Computer Science"
+    },
+    {
+      "degree": "Master of Business Administration",
+      "major": "Business Administration"
+    },
+    {
+      "phd": {
+        "degree": "PhD in Computer Science",
+        "university": "Stanford University",
+        "graduationYear": 2021
+      }
+    }
+  ]
+}
