@@ -160,7 +160,7 @@ console.log("employees: ", employees);
 
 // console.log(employees.filter((employee) => employee.Role === Role.DEVELOPER));
 
-function findByRole(role: Role) {
+function findByRole(role: Role): employeeType[] {
   return employees.filter((employee) => employee.Role === role);
 }
 
@@ -171,8 +171,23 @@ function findById(id: number) {
 }
 
 console.log("find By Id: ", findById(2));
+console.log("find By Id: ", findById(10));
 
-function findByNameAndDepartment(name: string, department: string) {
+function findByID(id: number): employeeType | undefined {
+  const user = employees.find((employee) => employee.id === id);
+  if (!user) {
+    throw new Error(`No employee found with id: ${id}`);
+  }
+  return user;
+}
+
+console.log("find by ID : ", findByID(1));
+// console.log("find By Id (with Error) 2: ", findByID(10));                                                                                                                       
+
+function findByNameAndDepartment(
+  name: string,
+  department: string
+): employeeType[] {
   return employees.filter((employee) => {
     return employee.name === name && employee.department === department;
   });
@@ -191,7 +206,10 @@ console.log(
  * @example
  * findByDepartmentAndRole("IT", Role.DEVELOPER)
  */
-function findByDepartmentAndRole(department: string, role: Role) {
+function findByDepartmentAndRole(
+  department: string,
+  role: Role
+): employeeType[] {
   return employees.filter((employee) => {
     return employee.department === department && employee.Role === role;
   });
