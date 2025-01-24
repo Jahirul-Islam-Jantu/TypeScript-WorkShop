@@ -95,11 +95,11 @@ type Address = UserSchema["address"];
 type Position = Address["coordinates"];
 
 function printUser(user: UserSchema) {
-  console.log(user["address"]["coordinates"]);
+  // console.log(user["address"]["coordinates"]);
 }
 
 const Education = User["education"];
-console.log(User.skills);
+// console.log(User.skills);
 
 function createUser(user: UserSchema): UserSchema {
   return {
@@ -115,4 +115,14 @@ function createUser(user: UserSchema): UserSchema {
 
 // console.log(createUser());
 
-console.log(User.skills);
+// console.log(User);
+
+const user = JSON.parse(JSON.stringify(User)) as UserSchema;
+
+console.log(user);
+
+const printUserSkills = (skills: UserSchema["skills"]) => {
+  return skills.map((skill) => skill.name);
+};
+
+console.log(printUserSkills(user.skills));
