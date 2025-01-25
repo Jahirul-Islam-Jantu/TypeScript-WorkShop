@@ -121,6 +121,11 @@ const user = JSON.parse(JSON.stringify(User)) as UserSchema;
 
 console.log(user);
 
+/**
+ * Given an array of skills, returns an array of skill names.
+ * @param {UserSchema["skills"]} skills
+ * @returns {string[]}
+ */
 const printUserSkills = (skills: UserSchema["skills"]) => {
   return skills.map((skill) => skill.name);
 };
