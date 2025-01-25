@@ -71,3 +71,43 @@ const createManager = defineRole({
 
 console.log(createAdmin);
 console.log(createManager);
+
+type ErrorResponse = {
+  statusCode: number;
+  error: true;
+  message: string;
+};
+
+type SuccessResponse = {
+  statusCode: number;
+  error: false;
+  data: string;
+};
+
+type ApiResponse = ErrorResponse | SuccessResponse;
+
+const handleResponse = (response: ApiResponse) => {
+  if (response.error) {
+    return {
+      response: response.message,
+      statusCode: response.statusCode,
+    };
+  } else {
+    return { response: response.data, statusCode: response.statusCode };
+  }
+};
+
+console.log(
+  handleResponse({
+    statusCode: 200,
+    error: false,
+    data: "Data fetched successfully",
+  })
+);
+console.log(
+  handleResponse({
+    statusCode: 400,
+    error: true,
+    message: "Something went wrong",
+  })
+);
