@@ -1,4 +1,1 @@
-import "./typeAlias";
-import './union'
-
-
+import "./intersection";
