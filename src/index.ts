@@ -1,1 +1,1 @@
-import "./intersection";
+import "./generic";
